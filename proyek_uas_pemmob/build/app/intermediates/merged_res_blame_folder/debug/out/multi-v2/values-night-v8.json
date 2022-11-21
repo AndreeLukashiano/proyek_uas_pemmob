@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\hp\\Downloads\\flutter-ui-plant-app-main\\flutter-ui-plant-app-main\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "D:\\pemmob\\proyek_uas_pemmob\\proyek_uas_pemmob\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hp\\Downloads\\flutter-ui-plant-app-main\\flutter-ui-plant-app-main\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "D:\\pemmob\\proyek_uas_pemmob\\proyek_uas_pemmob\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

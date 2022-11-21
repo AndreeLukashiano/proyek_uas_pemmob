@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding/constants.dart';
-import 'package:flutter_onboarding/models/plants.dart';
-import 'package:flutter_onboarding/ui/screens/widgets/plant_widget.dart';
+import 'package:flutter_onboarding/models/foods.dart';
+import 'package:flutter_onboarding/ui/screens/widgets/food_widget.dart';
 
 class FavoritePage extends StatefulWidget {
-  final List<Plant> favoritedPlants;
-  const FavoritePage({Key? key, required this.favoritedPlants})
+  final List<Food> favoritedFoods;
+  const FavoritePage({Key? key, required this.favoritedFoods})
       : super(key: key);
 
   @override
@@ -17,7 +17,7 @@ class _FavoritePageState extends State<FavoritePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: widget.favoritedPlants.isEmpty
+      body: widget.favoritedFoods.isEmpty
           ? Center(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -31,7 +31,7 @@ class _FavoritePageState extends State<FavoritePage> {
                     height: 10,
                   ),
                   Text(
-                    'Your favorited Plants',
+                    'Your favorited Foods',
                     style: TextStyle(
                       color: Constants.primaryColor,
                       fontWeight: FontWeight.w300,
@@ -45,12 +45,12 @@ class _FavoritePageState extends State<FavoritePage> {
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 30),
               height: size.height * .5,
               child: ListView.builder(
-                  itemCount: widget.favoritedPlants.length,
+                  itemCount: widget.favoritedFoods.length,
                   scrollDirection: Axis.vertical,
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
-                    return PlantWidget(
-                        index: index, plantList: widget.favoritedPlants);
+                    return FoodWidget(
+                        index: index, foodList: widget.favoritedFoods);
                   }),
             ),
     );

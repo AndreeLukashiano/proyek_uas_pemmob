@@ -2,7 +2,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding/constants.dart';
-import 'package:flutter_onboarding/models/plants.dart';
+import 'package:flutter_onboarding/models/foods.dart';
 import 'package:flutter_onboarding/ui/scan_page.dart';
 import 'package:flutter_onboarding/ui/screens/cart_page.dart';
 import 'package:flutter_onboarding/ui/screens/favorite_page.dart';
@@ -18,8 +18,8 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  List<Plant> favorites = [];
-  List<Plant> myCart = [];
+  List<Food> favorites = [];
+  List<Food> myCart = [];
 
   int _bottomNavIndex = 0;
 
@@ -27,8 +27,8 @@ class _RootPageState extends State<RootPage> {
   List<Widget> _widgetOptions(){
     return [
       const HomePage(),
-      FavoritePage(favoritedPlants: favorites,),
-      CartPage(addedToCartPlants: myCart,),
+      FavoritePage(favoritedFoods: favorites,),
+      CartPage(addedToCartFoods: myCart,),
       const ProfilePage(),
     ];
   }
@@ -90,11 +90,11 @@ class _RootPageState extends State<RootPage> {
         onTap: (index){
           setState(() {
             _bottomNavIndex = index;
-            final List<Plant> favoritedPlants = Plant.getFavoritedPlants();
-            final List<Plant> addedToCartPlants = Plant.addedToCartPlants();
+            final List<Food> favoritedFoods = Food.getFavoritedFoods();
+            final List<Food> addedToCartFoods = Food.addedToCartFoods();
 
-            favorites = favoritedPlants;
-            myCart = addedToCartPlants.toSet().toList();
+            favorites = favoritedFoods;
+            myCart = addedToCartFoods.toSet().toList();
           });
         }
       ),

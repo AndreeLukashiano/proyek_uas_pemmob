@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding/constants.dart';
-import 'package:flutter_onboarding/models/plants.dart';
+import 'package:flutter_onboarding/models/foods.dart';
 import 'package:flutter_onboarding/ui/screens/detail_page.dart';
-import 'package:flutter_onboarding/ui/screens/widgets/plant_widget.dart';
+import 'package:flutter_onboarding/ui/screens/widgets/food_widget.dart';
 import 'package:page_transition/page_transition.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,10 +18,10 @@ class _HomePageState extends State<HomePage> {
     int selectedIndex = 0;
     Size size = MediaQuery.of(context).size;
 
-    List<Plant> _plantList = Plant.plantList;
+    List<Food> _foodList = Food.foodList;
 
-    //Plants category
-    List<String> _plantTypes = [
+    //Foods category
+    List<String> _foodTypes = [
       'Recommended',
       'Indoor',
       'Outdoor',
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                           child: TextField(
                         showCursor: false,
                         decoration: InputDecoration(
-                          hintText: 'Search Plant',
+                          hintText: 'Search Food',
                           border: InputBorder.none,
                           focusedBorder: InputBorder.none,
                         ),
@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
             width: size.width,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: _plantTypes.length,
+                itemCount: _foodTypes.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                         });
                       },
                       child: Text(
-                        _plantTypes[index],
+                        _foodTypes[index],
                         style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: selectedIndex == index
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
             height: size.height * .3,
             child: ListView.builder(
-                itemCount: _plantList.length,
+                itemCount: _foodList.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                           context,
                           PageTransition(
                               child: DetailPage(
-                                plantId: _plantList[index].plantId,
+                                foodId: _foodList[index].foodId,
                               ),
                               type: PageTransitionType.bottomToTop));
                     },
@@ -143,12 +143,12 @@ class _HomePageState extends State<HomePage> {
                                 onPressed: () {
                                   setState(() {
                                     bool isFavorited = toggleIsFavorated(
-                                        _plantList[index].isFavorated);
-                                    _plantList[index].isFavorated = isFavorited;
+                                        _foodList[index].isFavorated);
+                                    _foodList[index].isFavorated = isFavorited;
                                   });
                                 },
                                 icon: Icon(
-                                  _plantList[index].isFavorated == true
+                                  _foodList[index].isFavorated == true
                                       ? Icons.favorite
                                       : Icons.favorite_border,
                                   color: Constants.primaryColor,
@@ -166,7 +166,7 @@ class _HomePageState extends State<HomePage> {
                             right: 50,
                             top: 50,
                             bottom: 50,
-                            child: Image.asset(_plantList[index].imageURL),
+                            child: Image.asset(_foodList[index].imageURL),
                           ),
                           Positioned(
                             bottom: 15,
@@ -175,14 +175,14 @@ class _HomePageState extends State<HomePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  _plantList[index].category,
+                                  _foodList[index].category,
                                   style: const TextStyle(
                                     color: Colors.white70,
                                     fontSize: 16,
                                   ),
                                 ),
                                 Text(
-                                  _plantList[index].plantName,
+                                  _foodList[index].foodName,
                                   style: const TextStyle(
                                     color: Colors.white70,
                                     fontSize: 15,
@@ -203,7 +203,7 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Text(
-                                r'$' + _plantList[index].price.toString(),
+                                r'$' + _foodList[index].price.toString(),
                                 style: TextStyle(
                                     color: Constants.primaryColor,
                                     fontSize: 16),
@@ -223,7 +223,7 @@ class _HomePageState extends State<HomePage> {
           Container(
             padding: const EdgeInsets.only(left: 16, bottom: 20, top: 20),
             child: const Text(
-              'New Plants',
+              'New Foods',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18.0,
@@ -234,15 +234,15 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.symmetric(horizontal: 12),
             height: size.height * .5,
             child: ListView.builder(
-                itemCount: _plantList.length,
+                itemCount: _foodList.length,
                 scrollDirection: Axis.vertical,
                 physics: const BouncingScrollPhysics(),
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
                       onTap: (){
-                        Navigator.push(context, PageTransition(child: DetailPage(plantId: _plantList[index].plantId), type: PageTransitionType.bottomToTop));
+                        Navigator.push(context, PageTransition(child: DetailPage(foodId: _foodList[index].foodId), type: PageTransitionType.bottomToTop));
                       },
-                      child: PlantWidget(index: index, plantList: _plantList));
+                      child: FoodWidget(index: index, foodList: _foodList));
                 }),
           ),
         ],

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding/constants.dart';
-import 'package:flutter_onboarding/models/plants.dart';
-import 'package:flutter_onboarding/ui/screens/widgets/plant_widget.dart';
+import 'package:flutter_onboarding/models/foods.dart';
+import 'package:flutter_onboarding/ui/screens/widgets/food_widget.dart';
 
 class CartPage extends StatefulWidget {
-  final List<Plant> addedToCartPlants;
-  const CartPage({Key? key, required this.addedToCartPlants}) : super(key: key);
+  final List<Food> addedToCartFoods;
+  const CartPage({Key? key, required this.addedToCartFoods}) : super(key: key);
 
   @override
   State<CartPage> createState() => _CartPageState();
@@ -16,7 +16,7 @@ class _CartPageState extends State<CartPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: widget.addedToCartPlants.isEmpty
+      body: widget.addedToCartFoods.isEmpty
           ? Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,12 +47,12 @@ class _CartPageState extends State<CartPage> {
           children: [
             Expanded(
               child: ListView.builder(
-                  itemCount: widget.addedToCartPlants.length,
+                  itemCount: widget.addedToCartFoods.length,
                   scrollDirection: Axis.vertical,
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
-                    return PlantWidget(
-                        index: index, plantList: widget.addedToCartPlants);
+                    return FoodWidget(
+                        index: index, foodList: widget.addedToCartFoods);
                   }),
             ),
             Column(

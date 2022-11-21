@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'ui/onboarding_screen.dart';
 
 void main(){
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'UAS PEMMOB',
+      title: 'MANGAN REK',
       home: OnboardingScreen(),
       debugShowCheckedModeBanner: false,
     );
