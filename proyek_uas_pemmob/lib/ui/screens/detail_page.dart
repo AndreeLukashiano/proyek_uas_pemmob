@@ -115,12 +115,12 @@ class _DetailPageState extends State<DetailPage> {
                             foodFeature: _foodList[widget.foodId].size,
                           ),
                           FoodFeature(
-                            title: 'Humidity',
+                            title: 'Quality',
                             foodFeature:
                                 _foodList[widget.foodId].quality.toString(),
                           ),
                           FoodFeature(
-                            title: 'Temperature',
+                            title: 'Range',
                             foodFeature:
                                 _foodList[widget.foodId].range,
                           ),

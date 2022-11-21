@@ -23,10 +23,10 @@ class _HomePageState extends State<HomePage> {
     //Foods category
     List<String> _foodTypes = [
       'Recommended',
-      'Indoor',
-      'Outdoor',
-      'Garden',
-      'Supplement',
+      'Kuah',
+      'Goreng',
+      'Minuman',
+      'Jajanan',
     ];
 
     //Toggle Favorite button

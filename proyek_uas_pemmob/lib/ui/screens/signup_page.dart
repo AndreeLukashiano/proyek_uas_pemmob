@@ -20,7 +20,7 @@ class SignUp extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('assets/images/signup.png'),
+              Image.asset('assets/images/sign-up-3.png'),
               const Text(
                 'Sign Up',
                 style: TextStyle(

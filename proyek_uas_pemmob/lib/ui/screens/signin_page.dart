@@ -21,7 +21,7 @@ class SignIn extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('assets/images/signin.png'),
+              Image.asset('assets/images/sign-in-2.png'),
               const Text(
                 'Sign In',
                 style: TextStyle(
