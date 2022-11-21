@@ -102,7 +102,7 @@ class Food {
         foodId: 5,
         price: 24,
         category: 'REK',
-        foodName: 'MANGAN',
+        foodName: 'MANGAN YUK',
         size: 'Medium',
         rating: 4.4,
         quality: 36,
